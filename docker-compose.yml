@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  postgres-boilerplate-service:
+    image: postgres:13-alpine
+    container_name: boilerplate_postgres
+    restart: always
+    tty: true
+    ports:
+      - "5013:5432"
+    volumes:
+      - ./.postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "boilerplate-db"
+      POSTGRES_USER: "boilerplate-user"
+      POSTGRES_PASSWORD: "boilerplate-password"
